@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Reporting Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#sortTable">Sort Table</a></li>
+                <li><a href="#">Documents</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#login-screen">Login</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                
+            </div>
+        </div>
+        <div class="main">
+            <div class="header">
+                <div class="header-left">
+                    <h1>Data Reporting</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <img src="./image1.webp" alt="User" />
+                        <span>Smruti Shah</span>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <!-- Simple Table Component -->
+                <h2>Simple Table</h2>
+                <div class="component table-component">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">Stock Name</th>
+                                <th onclick="sortTable(1)">Stock Price ($)</th>
+                                <th onclick="sortTable(2)">Company Name</th>
+                                <th onclick="sortTable(3)">No. of Stock Sales</th>
+                                <th onclick="sortTable(4)">No. of Stock Not Sales</th>
+                                <th onclick="sortTable(5)">In Profit or Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AAPL</td>
+                                <td>142.65</td>
+                                <td>Apple Inc.</td>
+                                <td>1000</td>
+                                <td>5000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>MSFT</td>
+                                <td>268.14</td>
+                                <td>Microsoft Corp.</td>
+                                <td>800</td>
+                                <td>3000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>GOOGLE</td>
+                                <td>2715.25</td>
+                                <td>Alphabet Inc.</td>
+                                <td>600</td>
+                                <td>2000</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>AMZN</td>
+                                <td>3323.34</td>
+                                <td>Amazon.com Inc.</td>
+                                <td>1200</td>
+                                <td>4000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>TSLA</td>
+                                <td>684.90</td>
+                                <td>Tesla Inc.</td>
+                                <td>1500</td>
+                                <td>1000</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>NVDA</td>
+                                <td>835.12</td>
+                                <td>NVIDIA Corporation</td>
+                                <td>700</td>
+                                <td>2500</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>FB</td>
+                                <td>325.08</td>
+                                <td>Meta Platforms Inc.</td>
+                                <td>900</td>
+                                <td>1500</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>BRK.B</td>
+                                <td>299.45</td>
+                                <td>Berkshire Hathaway</td>
+                                <td>500</td>
+                                <td>3000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>JPM</td>
+                                <td>150.76</td>
+                                <td>JPMorgan Chase & Co</td>
+                                <td>1100</td>
+                                <td>2000</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>V</td>
+                                <td>243.55</td>
+                                <td>Visa Inc.</td>
+                                <td>800</td>
+                                <td>1800</td>
+                                <td>Profit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2>Overview</h2>
+                <div class="stats" id="overview">
+                    <div class="stat">
+                        <h3>38.7K</h3>
+                        <p>Projects Done</p>
+                    </div>
+                    <div class="stat">
+                        <h3>118.7K</h3>
+                        <p>Projects In-Progress</p>
+                    </div>
+                    <div class="stat">
+                        <h3>56.3K</h3>
+                        <p>Hours Worked</p>
+                    </div>
+                    <div class="stat">
+                        <h3>2.1K</h3>
+                        <p>Tasks Completed</p>
+                    </div>
+                </div>
+                <h2 id="projects">Projects</h2>
+                <div class="charts">
+                    <div class="chart">
+                        <h3>Planned and Actual Expenses</h3>
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h3>Annual Leads Dynamics</h3>
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+                <div class="charts">
+                    <!-- Pie Chart Component -->
+                    <div class="chart">
+                        <h3>Stock Price List</h3>
+                        <canvas id="pieChart" style="width:200px !important;height:100px;padding:0;margin:0"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h3>Weekly OS Dynamics</h3>
+                        <canvas id="doughnut"></canvas>
+                    </div>
+                </div>
+                <!-- Sortable/Searchable Table Component -->
+                <h2 id="sortTable">Sort Table</h2>
+                <div class="table-component component">
+                    <input type="text" id="search" placeholder="Search..." class="component search">
+                    <table id="sortable-table">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">Stock Name</th>
+                                <th onclick="sortTable(1)">Stock Price ($)</th>
+                                <th onclick="sortTable(2)">Company Name</th>
+                                <th onclick="sortTable(3)">No. of Stock Sales</th>
+                                <th onclick="sortTable(4)">No. of Stock Not Sales</th>
+                                <th onclick="sortTable(5)">In Profit or Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AAPL</td>
+                                <td>142.65</td>
+                                <td>Apple Inc.</td>
+                                <td>1000</td>
+                                <td>5000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>MSFT</td>
+                                <td>268.14</td>
+                                <td>Microsoft Corp.</td>
+                                <td>800</td>
+                                <td>3000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>GOOGLE</td>
+                                <td>2715.25</td>
+                                <td>Alphabet Inc.</td>
+                                <td>600</td>
+                                <td>2000</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>AMZN</td>
+                                <td>3323.34</td>
+                                <td>Amazon.com Inc.</td>
+                                <td>1200</td>
+                                <td>4000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>TSLA</td>
+                                <td>684.90</td>
+                                <td>Tesla Inc.</td>
+                                <td>1500</td>
+                                <td>1000</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>NVDA</td>
+                                <td>835.12</td>
+                                <td>NVIDIA Corporation</td>
+                                <td>700</td>
+                                <td>2500</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>FB</td>
+                                <td>325.08</td>
+                                <td>Meta Platforms Inc.</td>
+                                <td>900</td>
+                                <td>1500</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>BRK.B</td>
+                                <td>299.45</td>
+                                <td>Berkshire Hathaway</td>
+                                <td>500</td>
+                                <td>3000</td>
+                                <td>Profit</td>
+                            </tr>
+                            <tr>
+                                <td>JPM</td>
+                                <td>150.76</td>
+                                <td>JPMorgan Chase & Co</td>
+                                <td>1100</td>
+                                <td>2000</td>
+                                <td>Loss</td>
+                            </tr>
+                            <tr>
+                                <td>V</td>
+                                <td>243.55</td>
+                                <td>Visa Inc.</td>
+                                <td>800</td>
+                                <td>1800</td>
+                                <td>Profit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    
+                    
+                </div>
+                <!-- Modal Box Component -->
+                <div class="modal-container">
+                    <button id="modalBtn">Open Modal</button>
+                    <div id="myModal" class="modal">
+                        <div class="info-box info-box-component">
+                            <span class="close">&times;</span>
+                            
+                                <h2>Table Overview</h2>
+                                <p>The table represents stock data for various companies, including essential details 
+                                    such as stock price, company name, number of stock sales, 
+                                    and whether the stock is in profit or loss. Here's a breakdown of the columns:</p>
+                                    <ol>
+                                        <li><b>Stock Name:</b> The ticker symbol of the stock.</li>
+                                        <li><b>Stock Price ($):</b> The current price per share of the stock in dollars.</li>
+                                        <li><b>Company Name:</b> The full name of the company corresponding to the stock.</li>
+                                        <li><b>No. of Stock Sales:</b> The number of shares that have been sold.</li>
+                                        <li><b>No. of Stock Not Sales:</b> The number of shares that have not been sold (potentially referring to holdings).</li>
+                                        <li><b>In Profit or Loss:</b> Indicates whether the stock is currently in profit or loss compared to its purchase price.</li>
+                                    </ol>
+                                <h2>How to Use the Sort Table</h2>
+                                <ol>
+                                    <li><b>Search:</b> The `search` input allows users to search for specific stocks or companies within the table.</li>
+                                    <li><b>Sortable Headers:</b> Each column header is clickable (onclick="sortTable(n)"), allowing users to sort the table by that column's data.</li>
+                                    <li><b>Data Representation:</b> The table provides a clear and structured format for viewing essential stock data, making it easy to analyze and compare.</li>
+                                </ol>   
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Login Screen Component -->
+                <div id="login-screen" class="login-screen">
+                    <form>
+                        <h2>Login</h2>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer">
+                <p>&copy; 2024 Created by Smruti Shah. All rights reserved.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
